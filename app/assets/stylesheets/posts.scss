@@ -1,0 +1,65 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+p {
+	text-align: center;
+}
+
+
+
+.list_line_even {
+	
+	background: #FFF;
+	border-right: 1.9px solid #E1E8ED;
+	border-left: 1.9px solid #E1E8ED;
+	border-bottom: 1.9px solid #E1E8ED; 
+
+}
+
+.list_line_odd {
+	
+	background: #FFF;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	border: 1.9px solid #E1E8ED;
+	
+}
+
+.post-options li{
+
+	font-size: 12px;
+	display: inline !important;
+}
+
+.post-options a, .post-options a:visited{
+	color: #gray;
+}
+.post-options a:hover{
+	color: red;
+	background: none;
+}
+
+.video-post{
+	
+	margin-top: none;
+	margin-bottom: none;
+
+}
+
+
+.sort-active{
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.pagination{	
+	text-decoration: none;
+	font-size: 20px;
+}
+
+
+

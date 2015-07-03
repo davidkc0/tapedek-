@@ -1,0 +1,57 @@
+ 
+    <div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  We are currently in beta, and still working out a few bugs. Please bare with us. <a hfef="www.tapedek.com/about" class="alart=link"> <STRONG>Learn more</STRONG></a>
+  </div>
+
+    <h4>Sort by:
+      <span class="<%= @most_popular %>"><%= link_to "Most Popular", posts_path %> |</span>
+      <span class="<%= @added_on %>"><%= link_to "Added On", posts_path(sort_by: "added_on") %></span></h4>
+
+    <% @posts.each do |post| %>
+      <div class="<%= cycle('list_line_odd', 'list_line_even')%>">
+        <div class="row video-post">
+          <div class="col-lg-12">
+            <h3 class="text-center"><%= post.title %></h3>
+        
+              <% if current_user %>
+                <ul class="text-left post-options">
+                  <li><%= link_to 'Show |', post %></li>
+                  <li><%= link_to 'Edit |', edit_post_path(post) %></li>
+                  <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              <%end%>
+        
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= post.video_url %>"></iframe>
+            </div>
+          </div>
+        </div>
+          
+          <div class="btn-group">
+            <%= link_to like_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
+              <span class="up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
+              <span class="glyphicon glyphicon-arrow-up"></span>
+          <% end %>
+      
+          <%= link_to dislike_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
+            <span class="down-vote-<%=post.id%>"><%= post.get_downvotes.size %></span>
+            <span class="glyphicon glyphicon-arrow-down">
+          <% end %>
+          </div>
+      </div>
+  
+    <% end %>
+<br>
+<br>
+
+<div class="text-center page_info" >
+         <%= page_entries_info @vars %>
+    </div>
+    
+<div class= "text-center pagination_links" >
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails, :page_links => false, previous_label: "< prev", next_label: "next >"%>
+ 
+
+ </div>
+

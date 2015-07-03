@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tapedek: what the internet is watching</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+
+	
+	
+		<header class="navbar navbar-inverse" role= "navigation">
+		<div class="navbar-inner">
+		<div class="container">
+			<div class="navbar-header">
+				<a class "navbar-brand" href="www.tapedek.com">
+					<%= image_tag "tapedek3.png"%>
+				</a>
+			</div>
+		
+		<nav class+"collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav pull-right"> 
+
+
+			<li><%= link_to"submit a new tape", new_post_path %></li>
+			  
+			<li><%= link_to"about", about_path %></li>
+			 
+			<% if user_signed_in? %>
+        	<li><%= link_to "sign out", destroy_user_session_path, :method => :delete %></li>
+        	<%end%>
+  
+			
+			
+
+		</ul>
+		</nav>
+	</header>
+</div>
+</div>
+</div>
+</head>
+<body>
+
+	<% flash.each do |name, msg| %>
+	<%= content_tag(:div, msg, class: "aler alert-#{name}")%>
+	<% end %>
+	<main id="content" class="container">
+	
+<%= yield %>
+
+</main>
+
+
+</body>
+
+<footer>
+ a DKC production <br> tapedek © 2015
+</footer>
+
+</html>
+

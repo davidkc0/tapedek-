@@ -1,0 +1,2 @@
+$('.up-vote-<%=@post.id%>').html('<%= escape_javascript @post.get_upvotes.size.to_s %>');
+$('.down-vote-<%=@post.id%>').html('<%= escape_javascript @post.get_downvotes.size.to_s %>');
