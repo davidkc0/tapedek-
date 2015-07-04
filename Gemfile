@@ -26,7 +26,7 @@ gem 'pry'
 # gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-group :development, :test do
+group :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'sqlite3'
