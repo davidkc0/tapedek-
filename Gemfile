@@ -1,11 +1,12 @@
-source 'https://rubygems.org'
-ruby "2.2.2"
+source 'http://rubygems.org'
+ruby "2.1.5"
 gem 'devise', '~> 3.5.1'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'rails', '4.2.1'
 gem 'heroku'
+gem 'actionview', '~> 4.2.1'
 
 group :production do
 	gem 'pg'
