@@ -4,19 +4,26 @@ development:
   pool: 5
   timeout: 5000
   username: david
-  password: 12ciaffoniD
-
-test:
+default: &default
   adapter: postgresql
-  database: david_youtube_test
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  encoding: unicode
   pool: 5
-  timeout: 5000
   username: david
   password: 12ciaffoniD
 
- 
+development:
+  <<: *default
+  database: "david_youtube_development"
 
+test:
+  <<: *default
+  database: "david_youtube_test"
 
-
+production:
+  <<: *default
+  database: "david_youtube_production"
 
 
