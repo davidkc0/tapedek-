@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
 private
 
-def user_session 
-	@user_session ||=user_session.new(session)
+def user_session
+	@user_session ||= user_session.new(session)
 end
 helper_method :user_session
 
