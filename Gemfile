@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby "2.1.5"
+ruby "2.1.2"
 gem 'devise', '~> 3.5.1'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'will_paginate', '~> 3.0.7'
@@ -10,9 +10,9 @@ gem 'actionview', '~> 4.2.1'
 
 group :production do
 	gem 'pg', '~> 0.18.2'
-end 
+	gem 'rails_12factor'
+end
 
-gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
