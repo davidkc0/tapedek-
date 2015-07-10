@@ -3,7 +3,7 @@ belongs_to :user
 	acts_as_votable
 
 	validates :title, presence: true, 
-			length: {minimum: 4, maximum: 45}
+			length: {minimum: 4, maximum: 55}
 
 	validates :video_url, uniqueness: true
 
