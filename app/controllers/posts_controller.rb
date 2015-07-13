@@ -77,8 +77,6 @@ def downvote
   end
 end
 
-
-
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy

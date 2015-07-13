@@ -1,13 +1,15 @@
 
 
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    We are currently in beta, and still working out a few bugs. Please bare with us. 
-  </div>
+  <h2> What the internet is watching: </h2>
 
-    <h4>Sort by:
-      <span class="<%= @most_popular %>"><%= link_to "Most Popular", posts_path %> |</span>
-      <span class="<%= @added_on %>"><%= link_to "Added On", posts_path(sort_by: "added_on") %></span></h4>
+  
+
+<a href="/posts"><%= image_tag "hot3.png"%></a>
+<a href="/posts?sort_by=added_on"><%= image_tag "newest.png"%></a>
+
+  
+     
+      
 
     <% @posts.each do |post| %>
       <div class="<%= cycle('list_line_odd', 'list_line_even')%>">
@@ -31,13 +33,13 @@
           
           <div class="btn-group">
             <%= link_to like_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
-              <span class="up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
+              <span class="badge up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
               <span class="glyphicon glyphicon-arrow-up"></span>
           <% end %>
       
           <%= link_to dislike_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
-            <span class="down-vote-<%=post.id%>"><%= post.get_downvotes.size %></span>
-            <span class="glyphicon glyphicon-arrow-down">
+            <span class="badge down-vote-<%=post.id%>"><%= post.get_downvotes.size %></span>
+            <span class="glyphicon glyphicon-arrow-down"></span>
           <% end %>
           </div>
       </div>

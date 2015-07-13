@@ -9,10 +9,18 @@ p {
 	text-align: center;
 }
 
+h2 {
+	text-align: center;
+	padding-bottom: 35px;
+}
 
+.navbar-default {
+	margin-bottom: 0px;
+}
 
 .list_line_even {
 	
+	margin-top: none;
 	background: #FFF;
 	border-right: 1.9px solid #E1E8ED;
 	border-left: 1.9px solid #E1E8ED;
@@ -51,7 +59,6 @@ p {
 
 
 .sort-active{
-	font-size: 22px;
 	font-weight: bold;
 	text-decoration: none;
 }
