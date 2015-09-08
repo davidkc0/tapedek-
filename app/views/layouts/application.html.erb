@@ -7,23 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
-	<%= render 'layouts/header' %>
+	<body>
+		<%= render 'layouts/header' %>
 
-	<%= render 'layouts/flash_messages' %>
+		<%= render 'layouts/flash_messages' %>
 
-	<main id="content" class="container">
-	
-<%= yield %>
+		<div id="content" class="container">
+		
+			<%= yield %>
 
-</main>
+		</div>
 
+		<%= render 'layouts/footer' %>
 
-</body>
-
-<footer>
- a DKC production <br> tapedek © 2015
-</footer>
+	</body>
 
 </html>
 
