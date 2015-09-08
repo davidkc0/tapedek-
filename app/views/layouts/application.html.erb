@@ -9,9 +9,9 @@
 
 <body>
 	<%= render 'layouts/header' %>
-	<% flash.each do |name, msg| %>
-	<%= content_tag(:div, msg, class: "aler alert-#{name}")%>
-	<% end %>
+
+	<%= render 'layouts/flash_messages' %>
+
 	<main id="content" class="container">
 	
 <%= yield %>
