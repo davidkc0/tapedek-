@@ -2,22 +2,34 @@ module PostsHelper
 
   def embedded_video(post)
     case post.provider
+    # YOUTUBE #
     when "youtube"
       return "<div class='embed-responsive embed-responsive-16by9'>\
               <iframe class='embed-responsive-item' src='https://www.youtube.com/embed/#{post.embed_token}' allowFullScreen='true'>\
               </iframe></div>".html_safe
+    # VIMEO #
     when "vimeo"
       return "<div class='embed-responsive embed-responsive-16by9'>\
             <iframe src='//player.vimeo.com/video/#{post.embed_token}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen>\
             </iframe></div>".html_safe
+    # VINE #
     when "vine"
-      return "vine"
+      return "<div class='embed-responsive embed-responsive-16by9'>\
+              <iframe class='vine-embed' src='https://vine.co/v/#{post.embed_token}/embed/simple' width='600' height='600' frameborder='0'>\
+              </iframe></div>".html_safe
+    # INSTAGRAM #
     when "instagram"
-      return "instagram"
+      return "<div class='embed-responsive embed-responsive-16by9 insta_embed'>\
+              <blockquote class='instagram-media' data-instgrm-captioned data-instgrm-version='4'><div><div style=' '></div><p style=' margin:8px 0 0 0; padding:0 4px;'><a href='https://instagram.com/p/#{post.embed_token}/' target='_top'></a></p></div></blockquote><script async defer src='//platform.instagram.com/en_US/embeds.js'></script>/
+              </div>".html_safe
     when "twitch"
-      return "twitch"
+              return "<object bgcolor='#000000' data='//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf' height='378' id='clip_embed_player_flash' type='application/x-shockwave-flash' width='620'><param name='movie' value='//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf' /><param name='allowScriptAccess' value='always' /><param name='allowNetworking' value='all' /><param name='allowFullScreen' value='true' /><param name='flashvars' value='channel=kotaku&videoId=14078782' /></object>".html_safe
+      # return "".html_safe
     when "gif"
-      return "gif"  
+      return "<div class='embed-responsive embed-responsive-16by9'>\
+              <div class='gif_img'><img src='#{post.video_url}'></div>\
+              </div>".html_safe
+      # return "<blockquote class='imgur-embed-pub' lang='en' data-id='#{post.video_url.split('.com')[1]}'><a href='#{post.video_url.split('.gif')[0]}'>View post on imgur.com</a></blockquote><script async src='//s.imgur.com/min/embed.js' charset='utf-8'></script>".html_safe
     else
       return "Error"
     end    

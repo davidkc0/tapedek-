@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  include UrlHelp
 
   PROVIDERS = %w[vimeo youtube vine instagram twitch gif]
 
@@ -15,36 +16,19 @@ class Post < ActiveRecord::Base
   validates :provider, inclusion: { in: PROVIDERS,
     message: "This URL is not in our list of accepted domains. Please user the following domains: #{PROVIDERS.map{|p| p.titleize}.join(", ")}" }
 
-
   def video_url=(url)
     set_provider(url)
-    url = cut_before_domain(url)
+    url = UrlHelp::cut_before_domain(url) if !UrlHelp::is_gif?(url)
     super
   end
 
-  def cut_before_domain(url)
-    if url.start_with?("http") 
-      url = url.split("://")[1]
-    end
-    if url.start_with?("www.")
-      url = url.split("www.")[1]
-    end
-    url
-  end
-
-  def is_gif?(video_url)
-    video_url.split(".")[-1] == "gif"
-  end
-
   def get_domain(url)
-    puts("in get domain")
-    url = "gif" if is_gif?(url)
-    url = cut_before_domain(url)
+    url = "gif" if UrlHelp::is_gif?(url)
+    url = UrlHelp::cut_before_domain(url)
     domain = url.split(".")[0]
   end 
 
   def set_provider(url)
-    puts("in set")
     domain = get_domain(url) 
     if PROVIDERS.include? domain
       provider = domain
@@ -52,19 +36,6 @@ class Post < ActiveRecord::Base
       provider = nil
     end
     update_attribute(:provider, provider)
-  end
-
-  def embed_token
-    case provider
-    when "youtube"
-      regex = /youtube.com.*(?:\/|v=)([^&$]+)/
-      return video_url.match(regex)[1] if video_url.present? and video_url.match(regex).present?
-    when "vimeo"
-      regex = /vimeo.com.*(?:\/|v=)([^&$]+)/
-      return video_url.match(regex)[1] if video_url.present? and video_url.match(regex).present?
-    else
-      ## No idea
-    end
   end
 
 	def self.highest_voted

@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  def admin?
+    false
+  end
+
   def login=(login)
     @login = login
   end
