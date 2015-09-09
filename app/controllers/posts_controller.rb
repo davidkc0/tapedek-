@@ -26,11 +26,11 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    title = post_params[:title]
-    url = post_params[:video_url]
-    regex = /youtube.com.*(?:\/|v=)([^&$]+)/
-    url_id = url.match(regex)[1] if url.present? and url.match(regex).present?
-    @post = Post.new(title: title, video_url: url_id)
+    # title = post_params[:title]
+    # url = post_params[:video_url]
+    # regex = /youtube.com.*(?:\/|v=)([^&$]+)/
+    # url_id = url.match(regex)[1] if url.present? and url.match(regex).present?
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
