@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy ]
-
-  #before_filter :authenticate_user! [:show, :edit, :update, :destory]
+  before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -26,11 +25,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    # title = post_params[:title]
-    # url = post_params[:video_url]
-    # regex = /youtube.com.*(?:\/|v=)([^&$]+)/
-    # url_id = url.match(regex)[1] if url.present? and url.match(regex).present?
-    @post = Post.new(post_params)
+    @post = current_user.posts.create(post_params)
 
     respond_to do |format|
       if @post.save
