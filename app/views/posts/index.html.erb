@@ -1,25 +1,17 @@
-
-
-  <h2> What the internet is watching: </h2>
-
-  
+<h2> What the internet is watching: </h2>
 
 <a href="/posts"><%= image_tag "hot3.png"%></a>
 <a href="/posts?sort_by=added_on"><%= image_tag "newest.png"%></a>
 
-  
-     
-      
-
-    <% @posts.each do |post| %>
-      <%= render "post", post: post %>
-    <% end %>
-<br>
-<br>
+<div class="post_list">
+  <% @posts.each do |post| %>
+    <%= render "post", post: post %>
+  <% end %>
+</div>
 
 <div class="text-center page_info" >
-         <%= page_entries_info @vars %>
-    </div>
+  <%= page_entries_info @vars %>
+</div>
     
 <div class= "text-center pagination_links" >
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails, :page_links => false, previous_label: "< prev", next_label: "next >"%>

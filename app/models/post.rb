@@ -54,6 +54,19 @@ class Post < ActiveRecord::Base
     update_attribute(:provider, provider)
   end
 
+  def embed_token
+    case provider
+    when "youtube"
+      regex = /youtube.com.*(?:\/|v=)([^&$]+)/
+      return video_url.match(regex)[1] if video_url.present? and video_url.match(regex).present?
+    when "vimeo"
+      regex = /vimeo.com.*(?:\/|v=)([^&$]+)/
+      return video_url.match(regex)[1] if video_url.present? and video_url.match(regex).present?
+    else
+      ## No idea
+    end
+  end
+
 	def self.highest_voted
     self.order(:cached_votes_up)
   end
