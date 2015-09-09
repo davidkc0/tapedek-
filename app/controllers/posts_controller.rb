@@ -13,6 +13,11 @@ class PostsController < ApplicationController
   def show
   end
 
+  def random
+    @post = Post.offset(rand(Post.count)).first
+    render :show
+  end
+
   # GET /posts/new
   def new
     @post = Post.new

@@ -2,6 +2,7 @@
 
 <a href="/posts"><%= image_tag "hot3.png"%></a>
 <a href="/posts?sort_by=added_on"><%= image_tag "newest.png"%></a>
+<%= link_to "Random", random_path, class: "btn btn-default" %>
 
 <div class="post_list">
   <% @posts.each do |post| %>
