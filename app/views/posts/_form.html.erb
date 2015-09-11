@@ -22,8 +22,17 @@
   </div>
   <div class="form-group">
     <%= f.label :video_url %><br>
-    <%= f.text_field :video_url, class: "form-control" %>
-    <span id="helpBlock" class="help-block">At this time only youtube videos are supported.</span>
+    <%= f.text_field :video_url, class: "form-control", placeholder: "YouTube, Vimeo, and Vine videos are supported, as well as some gifs." %>
+
+    <div id="helpBlock" class="help-block">Having an issue with your link? Click here to see accepted URL formats.</div>
+    
+    <div id="urlFormattingList" style="display:none;">
+      <ul>
+        <li><span>YouTube</span> youtube.com/watch?v=1A2b3C</li>
+        <li><span>Instagram</span> instagram.com/p/1A2b3C</li>
+        <li><span>Vine</span> vine.co/v/1A2b3C</li>
+      </ul>
+    </div>
   </div>
   <div class="form-group">
     <%= f.submit "submit", class: "btn btn-default" %>

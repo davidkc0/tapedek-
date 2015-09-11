@@ -9,16 +9,14 @@ class Post < ActiveRecord::Base
 	validates :title, presence: true, 
 			length: {minimum: 4, maximum: 55}
 
-	validates :video_url, uniqueness: true
-
-	validates :video_url, presence: true
+	validates :video_url, presence: true, uniqueness: true
 
   validates :provider, inclusion: { in: PROVIDERS,
     message: "This URL is not in our list of accepted domains. Please user the following domains: #{PROVIDERS.map{|p| p.titleize}.join(", ")}" }
 
   def video_url=(url)
+    url = UrlHelp::clean_url(url, get_domain(url))
     set_provider(url)
-    url = UrlHelp::cut_before_domain(url) if !UrlHelp::is_gif?(url)
     super
   end
 
@@ -35,7 +33,7 @@ class Post < ActiveRecord::Base
     else
       provider = nil
     end
-    update_attribute(:provider, provider)
+    self.provider = provider
   end
 
 	def self.highest_voted

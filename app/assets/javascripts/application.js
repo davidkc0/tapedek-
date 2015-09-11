@@ -15,3 +15,10 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+function ready () {
+  postFunctions();
+}
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
