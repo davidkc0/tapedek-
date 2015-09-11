@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false}
 
   has_many :posts
+  has_many :authentications, :dependent => :destroy 
 
   def admin?
     false
@@ -35,5 +36,24 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def password_required?
+    if self.authentications.any?
+      false
+    else
+      super
+    end
+  end 
+
+  def apply_omniauth(omniauth)
+    case omniauth['provider']
+    when "google_oauth2"
+      self.email = omniauth['info']['email']
+      self.username = omniauth['info']['name'].split(" ").join("_")
+    end  
+    self.encrypted_password = Devise.friendly_token[0,20]
+    auth_attrs = { provider: omniauth['provider'], uid: omniauth['uid'] }
+    authentications.build(auth_attrs)
+  end  
     
 end

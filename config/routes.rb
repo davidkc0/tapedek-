@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  match '/auth/:provider/callback', to: 'authentications#create', via: [:get, :post]
   
   get '/home', to: 'static_pages#home', as: :home
   get '/about', to: 'static_pages#about', as: :about
