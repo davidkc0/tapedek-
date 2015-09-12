@@ -2,6 +2,17 @@
 
 <h2>Sign in</h2>
 
+<div class="row text-center">
+  <div class="col-md-12 center-block">
+    <div class="social-sign-in">
+      <%= link_to '/auth/google_oauth2', class: "btn" do %>
+        <i class="fa fa-facebook"></i>
+        <div class="text-center">Sign in with Google+</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <!-- Email -->

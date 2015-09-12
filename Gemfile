@@ -23,7 +23,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'pry', '~> 0.10.1'
 gem 'omniauth-oauth2'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
+gem 'acts_as_commentable_with_threading'
+gem 'best_in_place', '~> 3.0.1'
+gem 'jquery-ui-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server

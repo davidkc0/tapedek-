@@ -91,5 +91,24 @@ h2 {
 	}
 }
 
+.reply_form {
+	display: none;
+}
 
+.child_comment {
+	margin-left: 40px;
+}
 
+.reply_button {
+	margin-top: -30px;
+}
+
+.comment_options {
+	list-style: none;
+	padding: 0;
+	margin-top: 10px;
+	margin-bottom: -10px;
+	li {
+		display: inline;
+	}
+}

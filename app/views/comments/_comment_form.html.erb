@@ -1,0 +1,15 @@
+<% parent_id = nil if local_assigns[:parent_id].nil? %>
+
+<%= form_for Comment.new do |f| %>
+  <div class="row">
+    <div class="col-md-5">
+      <%= f.hidden_field :parent_id, value: parent_id %>
+      <%= f.hidden_field :commentable_id, value: @post.id %>
+      <%= f.hidden_field :commentable_type, value: @post.class.to_s %>
+      <%= f.text_area :body, placeholder: "Comment body", class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    </div>
+  </div>  
+<% end %>

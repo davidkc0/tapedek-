@@ -1,0 +1,18 @@
+<div class="well">
+  <%= render "comments/comment_content", comment: comment %>
+
+  <% if current_user %>
+    <button class="btn btn-default pull-right reply_button">reply</button>
+  <% end %>
+
+</div>
+
+<% if current_user %>
+  <div class="reply_form"><%= render 'comments/comment_form', parent_id: comment.id %></div>
+<% end %>  
+
+<% comment.children.each do |comment| %>
+    <div class="well child_comment">
+      <%= render "comments/comment_content", comment: comment %>
+    </div>
+<% end %>
