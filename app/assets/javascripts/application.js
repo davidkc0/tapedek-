@@ -17,9 +17,6 @@
 //= require_tree .
 //= require best_in_place
 
-//= require jquery-ui
-//= require best_in_place.jquery-ui
-
 function ready () {
   postFunctions();
   $(".best_in_place").best_in_place();
