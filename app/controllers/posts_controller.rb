@@ -95,7 +95,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :video_url)
+      params.require(:post).permit(:title, :video_url, :tag_list)
     end
 
     def grab_correct_post

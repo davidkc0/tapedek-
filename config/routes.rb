@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:new, :create]
   resources :users, only: [:show]
+  resources :tags, only: [:show]
   
   root 'posts#index'
 end

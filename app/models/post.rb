@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
 	acts_as_votable
   acts_as_commentable
+  acts_as_taggable
 
 	validates :title, presence: true, 
 			length: {minimum: 4, maximum: 55}
