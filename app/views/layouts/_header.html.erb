@@ -13,7 +13,7 @@
           <li><%= link_to 'post a new video', new_post_path %></li>
           <li><%= link_to 'about', about_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to 'conversations', conversations_path %></li>
+            <li><%= link_to 'inbox', conversations_path %></li>
             <li><%= link_to 'sign out', destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to 'sign in', new_user_session_path %></li>
