@@ -1,7 +1,5 @@
 <h4>Your Conversations</h4>
 
-<p><%= link_to 'Start a New Conversation', new_message_path, class: 'btn btn-lg btn-primary' %></p>
-
 <ul class="list-group">
   <% @conversations.each do |conversation| %>
     <%= render 'conversation', conversation: conversation %>

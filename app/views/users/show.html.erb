@@ -1,1 +1,4 @@
 <h4><%= @user.name %>'s Profile</h4>
+
+<div><%= link_to 'Send Message', new_message_path(recipient_id: @user), class: 'btn btn-primary' %>
+</div>
