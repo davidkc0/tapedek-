@@ -1,9 +1,14 @@
-<div><%= comment.user.username %> said:</div>
-  <div><%= best_in_place comment, :body, as: :textarea, activator: "#edit_comment_#{comment.id}" %></div>
+<div>
+  <span class="comment_username" data-toggle="tooltip" data-placement="top" title="Click to send message." data-id="<%= comment.user.id %>"><%= link_to comment.user.username, user_path(comment.user) %></span>
+   said:
+</div>
 
-  <% if current_user == comment.user || (current_user and current_user.admin?) %> 
-    <ul class="text-left comment_options">  
-      <li><%= link_to 'Edit', "#", id: "edit_comment_#{comment.id}" %></li>
-      <li>| <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    </ul>
-  <%end%>
+<div><%= best_in_place comment, :body, as: :textarea, activator: "#edit_comment_#{comment.id}" %>
+</div>
+
+<% if current_user == comment.user || (current_user and current_user.admin?) %> 
+  <ul class="text-left comment_options">  
+    <li><%= link_to 'Edit', "#", id: "edit_comment_#{comment.id}" %></li>
+    <li>| <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+<%end%>

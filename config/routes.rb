@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :messages, only: [:new, :create]
-  
+  resources :users, only: [:show]
   
   root 'posts#index'
 end
