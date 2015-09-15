@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  acts_as_messageable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -49,11 +49,19 @@ class User < ActiveRecord::Base
     case omniauth['provider']
     when "google_oauth2"
       self.email = omniauth['info']['email']
-      self.username = omniauth['info']['name'].split(" ").join("_")
+      self.username = omniauth['info']['email'].split("@")[0]
     end  
     self.encrypted_password = Devise.friendly_token[0,20]
     auth_attrs = { provider: omniauth['provider'], uid: omniauth['uid'] }
     authentications.build(auth_attrs)
-  end  
+  end
+
+  def name
+    username
+  end
+
+  def mailboxer_email(object)
+    nil
+  end
     
 end
