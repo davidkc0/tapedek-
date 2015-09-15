@@ -16,10 +16,12 @@
 //= require turbolinks
 //= require_tree .
 //= require best_in_place
+//= require jquery.timeago
 
 function ready () {
   postFunctions();
   $(".best_in_place").best_in_place();
+  $("span.timeago").timeago();
 }
 
 $(document).ready(ready);

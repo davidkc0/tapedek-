@@ -1,9 +1,6 @@
-<div>
-  <span class="comment_username" data-toggle="tooltip" data-placement="top" title="Click to send message." data-id="<%= comment.user.id %>"><%= link_to comment.user.username, user_path(comment.user) %></span>
-   said:
-</div>
+<%= render 'shared/written_content_header', user: comment.user, item: comment %>
 
-<div><%= best_in_place comment, :body, as: :textarea, activator: "#edit_comment_#{comment.id}" %>
+<div class="message_content"><%= best_in_place_if comment.user == current_user, comment, :body, as: :textarea, activator: "#edit_comment_#{comment.id}" %>
 </div>
 
 <% if current_user == comment.user || (current_user and current_user.admin?) %> 

@@ -1,6 +1,6 @@
 <h4>Conversation</h4>
 
-<div class="panel panel-default">
+<div class="panel panel-default conversation">
   <div class="panel-heading"><%= @conversation.subject %></div>
 
   <div class="panel-body">
@@ -9,9 +9,8 @@
         <div class="well">
           <% message = receipt.message %>
 
-          <div><%= message.sender.try(:name) || "[deleted]" %>
-            says at <%= message.created_at.strftime("%b %-d, %Y, %H:%M") %></div>
-          <%= message.body %>
+          <%= render 'shared/written_content_header', user: message.sender, item: message %>
+          <div class="message_content"><%= message.body %></div>
         </div>  
       <% end %>
     </div>
