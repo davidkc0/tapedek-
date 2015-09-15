@@ -2,16 +2,20 @@
   <div class="row video-post">
     <div class="col-lg-12">
 
-      <h3 class="text-center"><%= post.title %></h3>
+      <div class="text-center">
+        <h3><%= post.title %></h3>
+        
+        <%= render "shared/written_content_header", user: post.user, item: post %>
 
-        <ul class="text-left post-options">  
+        <ul class="post-options">  
           <li><%= link_to 'Show', post %></li>
           <li>| <%= link_to 'Comments', comments_post_path(post) %></li>
-          <% if current_user == post.user || (current_user and current_user.admin?) %>  
+          <% if current_user and (current_user == post.user ||  current_user.admin?) %>
             <li>| <%= link_to 'Edit', edit_post_path(post) %></li>
             <li>| <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <% end %>  
         </ul>
+      </div>
 
       <%= embedded_video(post) %>
 

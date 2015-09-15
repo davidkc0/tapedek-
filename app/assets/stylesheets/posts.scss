@@ -36,10 +36,13 @@ h2 {
 	
 }
 
-.post-options li{
-
-	font-size: 12px;
-	display: inline !important;
+.post-options {
+	padding: 0;
+	margin-top: 10px;
+	li {
+		font-size: 12px;
+		display: inline !important;	
+	}
 }
 
 .post-options a, .post-options a:visited{

@@ -23,8 +23,15 @@ module PostsHelper
               <blockquote class='instagram-media' data-instgrm-captioned data-instgrm-version='4'><div><div style=' '></div><p style=' margin:8px 0 0 0; padding:0 4px;'><a href='https://instagram.com/p/#{post.embed_token}/' target='_top'></a></p></div></blockquote><script async defer src='//platform.instagram.com/en_US/embeds.js'></script>/
               </div>".html_safe
     when "twitch"
-              return "<object bgcolor='#000000' data='//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf' height='378' id='clip_embed_player_flash' type='application/x-shockwave-flash' width='620'><param name='movie' value='//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf' /><param name='allowScriptAccess' value='always' /><param name='allowNetworking' value='all' /><param name='allowFullScreen' value='true' /><param name='flashvars' value='channel=kotaku&videoId=14078782' /></object>".html_safe
-      # return "".html_safe
+      channel = post.embed_token.split("/v/")[0]
+      id = post.embed_token.split("/v/")[1]
+      return "<object data='http://www.twitch.tv/swflibs/TwitchPlayer.swf' id='clip_embed_player_flash' type='application/x-shockwave-flash'>\
+              <param name='movie' value='http://www.twitch.tv/swflibs/TwitchPlayer.swf' />\
+              <param name='allowScriptAccess' value='always' />\
+              <param name='allowNetworking' value='all' />\
+              <param name='allowFullScreen' value='true' />\
+              <param name='flashvars' value='channel=#{channel}&amp;videoId=v#{id}' />\
+              </object>".html_safe
     when "gif"
       return "<div class='embed-responsive embed-responsive-16by9'>\
               <div class='gif_img'><img src='#{post.video_url}'></div>\
@@ -33,7 +40,7 @@ module PostsHelper
     else
       return "Error"
     end    
-          ##<div class="embed-responsive embed-responsive-16by9">
-          ##
+          #<div class="embed-responsive embed-responsive-16by9">
+          #
   end
 end
