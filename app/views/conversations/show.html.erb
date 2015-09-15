@@ -1,0 +1,26 @@
+<h4>Conversation</h4>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @conversation.subject %></div>
+
+  <div class="panel-body">
+    <div class="messages">
+      <% @conversation.receipts_for(current_user).each do |receipt| %>
+        <div class="well">
+          <% message = receipt.message %>
+
+          <div><%= message.sender.try(:name) || "[deleted]" %>
+            says at <%= message.created_at.strftime("%b %-d, %Y, %H:%M") %></div>
+          <%= message.body %>
+        </div>  
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= form_tag reply_conversation_path(@conversation), method: :post do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag 'Send Message', class: 'btn btn-primary' %>
+<% end %>

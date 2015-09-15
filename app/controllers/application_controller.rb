@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_devise_params, if: :devise_controller?
 
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:warning] = "Resource not found."
+    redirect_to request.referer || root_path
+  end
+
   protected
 
     def configure_devise_params
