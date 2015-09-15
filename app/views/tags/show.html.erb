@@ -1,0 +1,7 @@
+<h2>Posts tagged with: "<%= params[:id] %>"</h2>
+
+<div class="post_list">
+  <% @posts.each do |post| %>
+    <%= render "post", post: post %>
+  <% end %>
+</div>

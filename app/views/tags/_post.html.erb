@@ -1,0 +1,44 @@
+<div class="<%= cycle('list_line_odd', 'list_line_even')%>">
+  <div class="row video-post">
+    <div class="col-lg-12">
+
+      <div class="text-center">
+        <h3><%= post.title %></h3>
+        
+        <%= render "shared/written_content_header", user: post.user, item: post %>
+
+        <div class="tag_list">
+          <%= "Tags: " if post.tag_list.present? %>
+          <% post.tag_list.each do |tag| %>
+            <%= link_to tag, tag_path(tag) %>
+          <% end %>
+        </div>
+
+        <ul class="post-options">  
+          <li><%= link_to 'Show', post %></li>
+          <li>| <%= link_to 'Comments', comments_post_path(post) %></li>
+          <% if current_user and (current_user == post.user ||  current_user.admin?) %>
+            <li>| <%= link_to 'Edit', edit_post_path(post) %></li>
+            <li>| <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <% end %>  
+        </ul>
+      </div>
+
+      <%= embedded_video(post) %>
+
+
+      </div>
+  </div>
+</div>
+
+<div class="btn-group">
+  <%= link_to like_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
+    <span class="badge up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
+    <span class="glyphicon glyphicon-arrow-up"></span>
+  <% end %>
+
+  <%= link_to dislike_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
+    <span class="badge down-vote-<%=post.id%>"><%= post.get_downvotes.size %></span>
+    <span class="glyphicon glyphicon-arrow-down"></span>
+  <% end %>
+</div>
