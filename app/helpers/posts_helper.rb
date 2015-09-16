@@ -20,7 +20,7 @@ module PostsHelper
     # INSTAGRAM #
     when "instagram"
       return "<div class='embed-responsive embed-responsive-16by9 insta_embed'>\
-              <blockquote class='instagram-media' data-instgrm-captioned data-instgrm-version='4'><div><div style=' '></div><p style=' margin:8px 0 0 0; padding:0 4px;'><a href='https://instagram.com/p/#{post.embed_token}/' target='_top'></a></p></div></blockquote><script async defer src='//platform.instagram.com/en_US/embeds.js'></script>/
+              <blockquote class='instagram-media' data-instgrm-captioned data-instgrm-version='4'><div><div style=' '></div><p style=' margin:8px 0 0 0; padding:0 4px;'><a href='https://instagram.com/p/#{post.embed_token}/' target='_top'></a></p></div></blockquote><script async defer src='//platform.instagram.com/en_US/embeds.js'></script>\
               </div>".html_safe
     when "twitch"
       channel = post.embed_token.split("/v/")[0]
