@@ -26,8 +26,8 @@ module PostsHelper
       channel = post.embed_token.split("/v/")[0]
       id = post.embed_token.split("/v/")[1]
       return "<div class='embed-responsive embed-responsive-16by9'>\
-              <object data='http://www.twitch.tv/swflibs/TwitchPlayer.swf' class='clip_embed_player_flash' type='application/x-shockwave-flash'>\
-              <param name='movie' value='http://www.twitch.tv/swflibs/TwitchPlayer.swf' />\
+              <object data='//www.twitch.tv/swflibs/TwitchPlayer.swf' class='clip_embed_player_flash' type='application/x-shockwave-flash'>\
+              <param name='movie' value='//www.twitch.tv/swflibs/TwitchPlayer.swf' />\
               <param name='allowScriptAccess' value='always' />\
               <param name='allowNetworking' value='all' />\
               <param name='allowFullScreen' value='true' />\
