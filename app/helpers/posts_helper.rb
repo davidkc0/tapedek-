@@ -25,13 +25,15 @@ module PostsHelper
     when "twitch"
       channel = post.embed_token.split("/v/")[0]
       id = post.embed_token.split("/v/")[1]
-      return "<object data='http://www.twitch.tv/swflibs/TwitchPlayer.swf' id='clip_embed_player_flash' type='application/x-shockwave-flash'>\
+      return "<div class='embed-responsive embed-responsive-16by9 insta_embed'>\
+              <object data='http://www.twitch.tv/swflibs/TwitchPlayer.swf' id='clip_embed_player_flash' type='application/x-shockwave-flash'>\
               <param name='movie' value='http://www.twitch.tv/swflibs/TwitchPlayer.swf' />\
               <param name='allowScriptAccess' value='always' />\
               <param name='allowNetworking' value='all' />\
               <param name='allowFullScreen' value='true' />\
               <param name='flashvars' value='channel=#{channel}&amp;videoId=v#{id}' />\
-              </object>".html_safe
+              </object>\
+              </div>".html_safe
     when "gif"
       return "<div class='embed-responsive embed-responsive-16by9'>\
               <div class='gif_img'><img src='#{post.video_url}'></div>\
