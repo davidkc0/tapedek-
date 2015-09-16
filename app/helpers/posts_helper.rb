@@ -25,7 +25,7 @@ module PostsHelper
     when "twitch"
       channel = post.embed_token.split("/v/")[0]
       id = post.embed_token.split("/v/")[1]
-      return "<div class='embed-responsive embed-responsive-16by9 insta_embed'>\
+      return "<div class='embed-responsive embed-responsive-16by9'>\
               <object data='http://www.twitch.tv/swflibs/TwitchPlayer.swf' id='clip_embed_player_flash' type='application/x-shockwave-flash'>\
               <param name='movie' value='http://www.twitch.tv/swflibs/TwitchPlayer.swf' />\
               <param name='allowScriptAccess' value='always' />\
