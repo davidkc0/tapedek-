@@ -30,7 +30,7 @@ module UrlHelp
       regex = /instagram.com\/p\/[a-zA-Z0-9]+/
       uniq_id = url.match(regex) ? url.match(regex)[0] : nil
     when "twitch"
-      regex = /twitch.tv\/[a-zA-Z0-9]+\/v\/[a-zA-Z0-9]+/
+      regex = /twitch.tv\/[a-zA-Z0-9_-]+\/v\/[a-zA-Z0-9_-]+/
       uniq_id = url.match(regex) ? url.match(regex)[0] : nil
     when "gif"
       return url
