@@ -19,7 +19,6 @@
 //= require jquery.timeago
 function onPlayerEvent (data) {
   data.forEach(function(event) {
-    console.log("\n\n\n", event)
     if (event.event == "videoPlaying") {
       $.each($(".clip_embed_player_flash"), function(x,y) {
         y.pauseVideo()
