@@ -23,6 +23,7 @@ class Post < ActiveRecord::Base
   end
 
   def get_domain(url)
+    return nil unless url.present?
     url = "gif" if UrlHelp::is_gif?(url)
     url = UrlHelp::cut_before_domain(url)
     domain = url.split(".")[0]
