@@ -38,7 +38,7 @@ h2 {
 
 .post-options {
 	padding: 0;
-	margin-top: 10px;
+	margin: 7px 0;
 	li {
 		font-size: 12px;
 		display: inline !important;	
@@ -117,7 +117,7 @@ h2 {
 }
 
 .tag_list {
-	margin: 10px 0;
+	margin: 7px 0;
 	padding-right: 30px;
 }
 
@@ -125,4 +125,11 @@ h2 {
   position: absolute;
   top: 26px;
   right: 32px;
+}
+
+.smaller_post_show {
+	max-width: 600px;
+	.vote_buttons {
+		width: 50%;
+	}
 }

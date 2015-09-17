@@ -1,4 +1,6 @@
-<div class="<%= cycle('list_line_odd', 'list_line_even')%>">
+<% size_class = local_assigns[:small] ? 'smaller_post_show' : '' %>
+
+<div class="<%= cycle('list_line_odd', 'list_line_even')%> <%= size_class %>">
   <div class="row video-post">
     <div class="col-lg-12">
 
@@ -21,7 +23,7 @@
 
 <div class="post_footer row">
 
-  <div class="btn-group col-md-2">
+  <div class="btn-group col-md-2 vote_buttons">
     <%= link_to like_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
       <span class="badge up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
       <span class="glyphicon glyphicon-arrow-up"></span>
@@ -33,25 +35,26 @@
     <% end %>
   </div>
 
-  <div class="col-md-3">
-    <ul class="post-options">  
-      <li><%= link_to 'Show', post %></li>
-      <li>| <%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
-      <% if current_user and (current_user == post.user ||  current_user.admin?) %>
-        <li>| <%= link_to 'Edit', edit_post_path(post) %></li>
-        <li>| <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      <% end %>  
-    </ul>
-  </div>
-
-  <div class="col-md-4 pull-right">
-    <div class="tag_list pull-right">
-      <%= "Tags: " if post.tag_list.present? %>
-      <% post.tag_list.each do |tag| %>
-        <%= link_to tag, tag_path(tag) %>
-      <% end %>
+  <% unless size_class == "smaller_post_show" %>
+    <div class="col-md-3">
+      <ul class="post-options">
+        <li><%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
+        <% if current_user and (current_user == post.user ||  current_user.admin?) %>
+          <li>| <%= link_to 'Edit', edit_post_path(post) %></li>
+          <li>| <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% end %>  
+      </ul>
     </div>
-  </div>
+
+    <div class="col-md-4 pull-right">
+      <div class="tag_list pull-right">
+        <%= "Tags: " if post.tag_list.present? %>
+        <% post.tag_list.each do |tag| %>
+          <%= link_to tag, tag_path(tag) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
 </div>  
 
