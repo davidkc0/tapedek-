@@ -2,3 +2,9 @@
 
 <div><%= link_to 'Send Message', new_message_path(recipient_id: @user), class: 'btn btn-primary' %>
 </div>
+
+<h5><%= @user.name %>'s Posts</h5>
+
+<% @user.posts.each do |post| %>
+  <%= render 'posts/post', post: post %>
+<% end %>
