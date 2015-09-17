@@ -49,7 +49,10 @@ class User < ActiveRecord::Base
     case omniauth['provider']
     when "google_oauth2"
       self.email = omniauth['info']['email']
-      self.username = omniauth['info']['email'].split("@")[0]
+      self.username = omniauth['info']['email'].split("@")[0].gsub(".", "_")
+    when "facebook"
+      self.email = omniauth['info']['email']
+      self.username = omniauth['info']['email'].split("@")[0].gsub(".", "_")
     end  
     self.encrypted_password = Devise.friendly_token[0,20]
     auth_attrs = { provider: omniauth['provider'], uid: omniauth['uid'] }

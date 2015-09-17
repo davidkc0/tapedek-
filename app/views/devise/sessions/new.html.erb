@@ -6,8 +6,15 @@
   <div class="col-md-12 center-block">
     <div class="social-sign-in">
       <%= link_to '/auth/google_oauth2', class: "btn" do %>
-        <i class="fa fa-facebook"></i>
+        <i class="fa fa-google"></i>
         <div class="text-center">Sign in with Google+</div>
+      <% end %>
+    </div>
+
+    <div class="social-sign-in">
+      <%= link_to '/auth/facebook', class: "btn" do %>
+        <i class="fa fa-facebook"></i>
+        <div class="text-center">Sign in with Facebook</div>
       <% end %>
     </div>
   </div>
