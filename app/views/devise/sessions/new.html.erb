@@ -1,24 +1,27 @@
 
 
 <h2>Sign in</h2>
-
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
 <div class="row text-center">
-  <div class="col-md-12 center-block">
-    <div class="social-sign-in">
-      <%= link_to '/auth/google_oauth2', class: "btn" do %>
-        <i class="fa fa-google"></i>
-        <div class="text-center">Sign in with Google+</div>
+  <div class="center-block">
+    <div class="social-sign-in col-md-6 text-center">
+      <%= link_to '/auth/google_oauth2', class: "btn-auth btn-google" do %>
+        Sign in with Google+
       <% end %>
     </div>
 
-    <div class="social-sign-in">
-      <%= link_to '/auth/facebook', class: "btn" do %>
+    <div class="social-sign-in col-md-6 text-center">
+      <%= link_to '/auth/facebook', class: "btn-auth btn-facebook" do %>
         <i class="fa fa-facebook"></i>
-        <div class="text-center">Sign in with Facebook</div>
+        Sign in with Facebook
       <% end %>
     </div>
   </div>
 </div>
+</div>
+</div>
+<br><div class="text-center">OR</div><br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
