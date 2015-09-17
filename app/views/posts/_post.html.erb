@@ -2,11 +2,15 @@
   <div class="row video-post">
     <div class="col-lg-12">
 
-      <div class="text-center">
-        <h3><%= post.title %></h3>
-        
-        <%= render "shared/written_content_header", user: post.user, item: post %>
-        
+      <div class="row">
+        <div class="text-center">
+          <h3><%= post.title %></h3>
+          
+          <span class="content_header_right">
+            <%= render "shared/written_content_header", user: post.user, item: post %>
+          </span>
+          
+        </div>
       </div>
 
       <%= embedded_video(post) %>
