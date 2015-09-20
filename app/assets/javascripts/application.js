@@ -27,6 +27,19 @@ function onPlayerEvent (data) {
   }); 
 }
 
+function insta_embed (id) {
+  $.ajax({
+    dataType: "jsonp",
+    url: 'http://api.instagram.com/oembed',
+    data: {
+            url: "http://instagr.am/p/" + id
+          },
+    success: function(data) {
+      $("#"+id).html(data.html)
+    }      
+  });
+}
+
 function ready () {
   postFunctions();
   $(".best_in_place").best_in_place();
