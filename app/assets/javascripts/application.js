@@ -31,6 +31,8 @@ function ready () {
   postFunctions();
   $(".best_in_place").best_in_place();
   $("span.timeago").timeago();
+  if (window.location.protocol != "http:")
+    window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
 }
 
 $(document).ready(ready);
