@@ -20,7 +20,6 @@ module PostsHelper
     # INSTAGRAM #
     when "instagram"
       return "<div class='insta_embed'><iframe src='//instagram.com/p/#{post.embed_token}/embed/' width='612' height='710' frameborder='0' scrolling='no' allowtransparency='true'></iframe></div>".html_safe
-      
       # return "<div class='insta_embed'><iframe class='instagram-media instagram-media-rendered' id='instagram-embed-0' src='//instagram.com/p/#{post.embed_token}/embed/captioned/?v=4' height='400'></iframe></div>".html_safe
       # return "<div id='#{post.embed_token}' class='insta_embed'><script>insta_embed('#{post.embed_token}')</script></div>".html_safe
     when "twitch"
