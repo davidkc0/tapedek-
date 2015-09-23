@@ -1,0 +1,47 @@
+<h1>Admin Panel</h1>
+
+
+<div id="exTab1" class="container"> 
+  <ul  class="nav nav-pills tab_remember">
+    <li class="active">
+      <a  href="#reported_posts" data-toggle="tab">Reported Posts</a>
+    </li>
+    <li><a href="#reported_comments" data-toggle="tab">Reported Comments</a>
+    </li>
+    <li><a href="#most_submits" data-toggle="tab">Users who submit the most posts</a>
+    </li>
+  </ul>
+
+  <div class="tab-content clearfix">
+    
+    <div class="tab-pane active" id="reported_posts">
+      <h3>Reported Posts</h3>
+        <% @reported_posts.each do |post| %>
+          <div><%= link_to "#{post.title} - #{pluralize(post.reports_count, 'report')}", post_path(post) %></div>
+        <% end %>
+    </div>
+
+
+    <div class="tab-pane" id="reported_comments">
+      <h3>Reported Posts</h3>
+        <% @reported_comments.each do |comment| %>
+          <h4><%= pluralize(comment.reports_count, "report") %>:</h4>
+          <div class="well">
+          <%= render 'comments/comment_content', comment: comment %><br><br>
+          </div>
+        <% end %>
+    </div>
+
+      <div class="tab-pane" id="most_submits">
+      <h3>Most Posts</h3>
+
+      <% count_hash = @most_posts.count %>
+      <ul>
+      <% @most_posts.each do |user| %>
+        <li><%= link_to user.username, user_path(user) %> has <%= pluralize(count_hash[user.id], "post") %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  </div>
+

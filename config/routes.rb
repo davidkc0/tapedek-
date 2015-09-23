@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about', as: :about
   get '/random', to: 'posts#random', as: :random
   post '/report', to: 'reports#create', as: :report
+  get '/admin', to: 'static_pages#admin', as: :admin
 
   resources :posts do
     member do
