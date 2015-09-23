@@ -7,7 +7,7 @@ function postFunctions() {
     $(this).parent().next('.reply_form').toggle();
   });
 
-  $("#new_post").on('submit', function (e) {
+  $(".new_post").on('submit', function (e) {
     // e.preventDefault();
     var $tag_list = $("#post_tag_list"),
         tags = $tag_list.val().toLowerCase().split(" ").join("").split(","),
