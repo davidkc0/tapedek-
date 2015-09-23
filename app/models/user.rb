@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy 
 
   def admin?
-    false
+    email == "tapedek.all@gmail.com"
   end
 
   def login=(login)
