@@ -35,8 +35,21 @@ function report_post_link () {
   });
 }
 
+function tab_remember () {
+  // set window hash on tab click
+  $('ul.tab_remember').on('click', 'a', function(e){
+    window.location.hash = e.target.hash;
+  });
+
+  // restore tab click on page refresh
+  if (window.location.hash) {
+    $('a[href$="' + window.location.hash + '"]').click();
+  }
+}
+
 function ready () {
   postFunctions();
+  tab_remember();
   $(".best_in_place").best_in_place();
   $("span.timeago").timeago();
   report_post_link();
