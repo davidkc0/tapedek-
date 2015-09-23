@@ -27,10 +27,19 @@ function onPlayerEvent (data) {
   }); 
 }
 
+function report_post_link () {
+  $('.report_link').on('click', function(e) {
+    $(this).replaceWith(function(){
+        return $("<span>Thanks for reporting!</span>");
+    });
+  });
+}
+
 function ready () {
   postFunctions();
   $(".best_in_place").best_in_place();
   $("span.timeago").timeago();
+  report_post_link();
   if (window.location.protocol != "http:")
     window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
 }

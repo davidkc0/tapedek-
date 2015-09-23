@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   PROVIDERS = %w[vimeo youtube vine instagram twitch gif]
 
   belongs_to :user
+  has_many :reports, as: :reportable
 	acts_as_votable
   acts_as_commentable
   acts_as_taggable

@@ -39,6 +39,9 @@
     <div class="col-md-3">
       <ul class="post-options">
         <li><%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
+        <% if current_user %>
+          <li><%= link_to "Report link", report_path(report: {reportable_id: post.id, reportable_type: "Post"}), id: "report_#{post.class}_#{post.id}", class: "report_link", remote: true, method: :post %></li>
+        <% end %>  
         <% if current_user and (current_user == post.user ||  current_user.admin?) %>
           <li>| <%= link_to 'Edit', edit_post_path(post) %></li>
           <li>| <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>

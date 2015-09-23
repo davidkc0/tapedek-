@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false}
 
   has_many :posts
+  has_many :reports ## Reported dead links
   has_many :authentications, :dependent => :destroy 
 
   def admin?

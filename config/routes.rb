@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/home', to: 'static_pages#home', as: :home
   get '/about', to: 'static_pages#about', as: :about
   get '/random', to: 'posts#random', as: :random
+  post '/report', to: 'reports#create', as: :report
 
   resources :posts do
     member do
