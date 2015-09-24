@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def random
     @post = Post.offset(rand(Post.count)).first
-    render :show
+    redirect_to comments_post_path(@post)
   end
 
   # GET /posts/new
