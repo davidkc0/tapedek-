@@ -39,7 +39,7 @@
     <div class="col-md-4">
       <ul class="post-options">
         <li><%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
-        <li>| <span class="post_share_buttons">Share</span></li>
+        <li>| <span class="post_share_buttons" data-url="<%= post_url(post) %>" data-title="<%= post.title %>">Share</span></li>
       </ul>
     </div>
 

@@ -19,3 +19,21 @@ function postFunctions() {
     $tag_list.val(uniqueTags.join(","))
   });
 }
+
+function socialSharing () {
+  function reset () {
+    $('span.post_share_buttons.active').removeClass("active");
+    $('#sharing_box').remove();
+  }
+
+  $('.post_share_buttons').on('click', function (){
+    $('span.post_share_buttons').find(".active");
+    reset();
+    var $this = $(this),
+        url = $this.data('url'),
+        title = $this.data('title');
+    var template = _.template(JST['social_share'])({title: title, url: url})
+    $this.addClass("active");
+    $this.parents(".post_footer").after(template)
+  });
+}  

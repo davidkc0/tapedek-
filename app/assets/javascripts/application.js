@@ -17,6 +17,8 @@
 //= require_tree .
 //= require best_in_place
 //= require jquery.timeago
+//= require underscore
+
 function onPlayerEvent (data) {
   data.forEach(function(event) {
     if (event.event == "videoPlaying") {
@@ -50,6 +52,7 @@ function tab_remember () {
 function ready () {
   postFunctions();
   tab_remember();
+  socialSharing();
   $(".best_in_place").best_in_place();
   $("span.timeago").timeago();
   report_post_link();

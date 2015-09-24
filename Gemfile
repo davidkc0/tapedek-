@@ -30,6 +30,8 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'mailboxer'
 gem 'acts-as-taggable-on'
 gem 'figaro'
+gem 'underscore-rails'
+gem 'font-awesome-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server

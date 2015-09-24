@@ -133,3 +133,13 @@ h2 {
 		width: 50%;
 	}
 }
+
+.post_share_buttons {
+	color: #337ab7;
+	cursor: pointer;
+	&:hover, &.active {
+    color: red;
+    background: none;
+    text-decoration: underline;
+	}
+}
