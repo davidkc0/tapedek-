@@ -37,7 +37,7 @@
 
   <% unless size_class == "smaller_post_show" %>
     <div class="col-md-4">
-      <ul class="post-options">
+      <ul class="post-options pull-left">
         <li><%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
         <li>| <span class="post_share_buttons" data-url="<%= post_url(post) %>" data-title="<%= post.title %>">Share</span></li>
       </ul>
