@@ -1,0 +1,14 @@
+<h4>Comments for "<%= @post.title %>"</h4>
+
+<p id="notice"><%= notice %></p>
+
+<%= render "posts/post", post: @post, small: true %>
+
+<%= link_to 'Back', posts_path %>
+
+<%= render 'comments/comment_form' if current_user %>
+
+
+<% @comments.each do |comment| %>
+  <%= render 'comment', comment: comment %>
+<% end %>

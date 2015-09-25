@@ -1,0 +1,36 @@
+// Place all the styles related to the conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.conversation {
+  .sender_info {
+    font-size: 1em;
+  }
+}
+
+.message_content {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+span.new_messages {
+  font-weight: 600;
+  color: rgba(255,120,120,1);
+}
+
+span.notification_number {
+  color: red;
+  position: relative;
+  top: -10px;
+  left: 5px;
+  font-size: 12px;
+  font-weight: 700;
+}

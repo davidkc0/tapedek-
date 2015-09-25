@@ -1,0 +1,5 @@
+<%= link_to conversation_path(conversation) do %>
+  <li class="list-group-item clearfix">
+    <%= "\"#{conversation.subject}\" with #{participant_name(conversation)}" %>
+  </li>
+<% end %>

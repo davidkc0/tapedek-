@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy ]
-
-  #before_filter :authenticate_user! [:show, :edit, :update, :destory]
+  before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -12,6 +11,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+  end
+
+  def random
+    @post = Post.offset(rand(Post.count)).first
+    redirect_to comments_post_path(@post)
   end
 
   # GET /posts/new
@@ -26,11 +30,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    title = post_params[:title]
-    url = post_params[:video_url]
-    regex = /youtube.com.*(?:\/|v=)([^&$]+)/
-    url_id = url.match(regex)[1] if url.present? and url.match(regex).present?
-    @post = Post.new(title: title, video_url: url_id)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -95,7 +95,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :video_url)
+      params.require(:post).permit(:title, :video_url, :tag_list)
     end
 
     def grab_correct_post

@@ -1,0 +1,9 @@
+<h4>Your Conversations</h4>
+
+<ul class="list-group">
+  <% @conversations.each do |conversation| %>
+    <%= render 'conversation', conversation: conversation %>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

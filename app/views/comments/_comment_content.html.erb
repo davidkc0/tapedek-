@@ -1,0 +1,16 @@
+<%= render 'shared/written_content_header', user: comment.user, item: comment %>
+
+<div class="message_content"><%= best_in_place_if comment.user == current_user, comment, :body, as: :textarea, activator: "#edit_comment_#{comment.id}" %>
+</div>
+
+<% if current_user %>
+  <ul class="text-left comment_options">
+    <li><%= link_to "Report", report_path(report: {reportable_id: comment.id, reportable_type: "Comment"}), id: "report_#{comment.class}_#{comment.id}", class: "report_link", remote: true, method: :post %></li>
+  <% if current_user == comment.user || (current_user and current_user.admin?) %> 
+  
+    <li>| <%= link_to 'Edit', "#", id: "edit_comment_#{comment.id}" %></li>
+    <li>| <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  
+  <%end%>
+  </ul>
+<% end %>   

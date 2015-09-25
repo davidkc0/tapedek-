@@ -1,0 +1,7 @@
+<div>
+  <%= profile_link_or_deleted(user) %>
+
+  <span class="timeago" title="<%= item.created_at.getutc.iso8601 %>">
+    <%= item.created_at.to_s %>
+  </span>
+</div>
