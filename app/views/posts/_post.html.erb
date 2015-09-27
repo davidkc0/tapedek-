@@ -1,6 +1,4 @@
-<% size_class = local_assigns[:small] ? 'smaller_post_show' : '' %>
-
-<div class="<%= cycle('list_line_odd', 'list_line_even')%> <%= size_class %> text-center video_display_center">
+<div class="<%= cycle('list_line_odd', 'list_line_even')%> text-center video_display_center">
   <div class="row video-post">
     <div class="col-lg-12">
 
@@ -35,7 +33,6 @@
     <% end %>
   </div>
 
-  <% unless size_class == "smaller_post_show" %>
     <div class="col-md-4">
       <ul class="post-options pull-left">
         <li><%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
@@ -69,10 +66,8 @@
         </div>
       <% end %> 
       </div> 
-
  
     </div>
-  <% end %>
 
 </div>  
 
