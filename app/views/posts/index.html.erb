@@ -1,8 +1,18 @@
 <h2> What the internet is watching: </h2>
 
-<a href="/posts"><%= image_tag "hot3.png"%></a>
-<a href="/posts?sort_by=added_on"><%= image_tag "newest.png"%></a>
-<%= link_to "Random", random_path, class: "btn btn-default" %>
+
+
+<div class= "btn-group">
+<%= link_to posts_path, class: "btn btn-primary sharp" do %>
+<span class="glyphicon glyphicon-star"></span> popular
+<% end %>
+<%= link_to posts_path(sort_by: "added_on"), class: "btn btn-success" do %>
+<span class="glyphicon glyphicon-time"></span> newest
+<% end %>
+<%= link_to random_path, class: "btn btn-danger sharp" do %> 
+ <span class="glyphicon glyphicon-random"></span> random
+<% end %>
+</div>
 
 <div class="post_list">
   <% @posts.each do |post| %>
@@ -14,7 +24,7 @@
   <%= page_entries_info @vars %>
 </div>
     
-<div class= "text-center pagination_links" >
+<div class= "pagination_links text-center" >
 <%= will_paginate @posts, renderer: BootstrapPagination::Rails, :page_links => false, previous_label: "< prev", next_label: "next >"%>
  
 

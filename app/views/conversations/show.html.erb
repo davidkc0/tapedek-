@@ -1,4 +1,4 @@
-<h4>Conversation</h4>
+<h4 class="text-center">conversation</h4>
 
 <div class="panel panel-default conversation">
   <div class="panel-heading"><%= @conversation.subject %></div>
@@ -21,5 +21,5 @@
   <div class="form-group">
     <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
   </div>
-  <%= submit_tag 'Send Message', class: 'btn btn-primary' %>
+  <%= submit_tag 'send message', class: 'btn btn-primary' %>
 <% end %>

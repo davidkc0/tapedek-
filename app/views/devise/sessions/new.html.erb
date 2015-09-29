@@ -1,6 +1,6 @@
 
 
-<h2>Sign in</h2>
+<h2>sign in</h2>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
 <div class="row text-center">
@@ -21,7 +21,7 @@
 </div>
 </div>
 </div>
-<br><div class="text-center">OR</div><br>
+<br><p class="text-center">-or-</p><br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -29,7 +29,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <%= f.text_field :login, autofocus: true, class: "form-control", placeholder: "Username or email" %>
+          <%= f.text_field :login, autofocus: true, class: "form-control form-control-gray", placeholder: "Username or email" %>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password #{ @validatable ? '(' + @minimum_password_length.to_s + ' characters minimum)' : ''}" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-gray", placeholder: "Password #{ @validatable ? '(' + @minimum_password_length.to_s + ' characters minimum)' : ''}" %>
         </div>
       </div>
     </div>

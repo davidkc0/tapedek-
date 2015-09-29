@@ -1,21 +1,21 @@
 <h1>Admin Panel</h1>
 
-
-<div id="exTab1" class="container"> 
-  <ul  class="nav nav-pills tab_remember">
-    <li class="active">
-      <a  href="#reported_posts" data-toggle="tab">Reported Posts</a>
+<body class="admin">
+<div id="exTab1" class="container pull-center"> 
+  <ul  class="nav nav-pills tab_remember text-center">
+    <li class="active pull-center">
+      <a  href="#reported_posts" data-toggle="tab">reported posts</a>
     </li>
-    <li><a href="#reported_comments" data-toggle="tab">Reported Comments</a>
+    <li><a href="#reported_comments" data-toggle="tab">reported comments</a>
     </li>
-    <li><a href="#most_submits" data-toggle="tab">Users who submit the most posts</a>
+    <li><a href="#most_submits" data-toggle="tab">users who submit the most posts</a>
     </li>
   </ul>
 
   <div class="tab-content clearfix">
     
     <div class="tab-pane active" id="reported_posts">
-      <h3>Reported Posts</h3>
+      <h2 class="text-center">reported posts</h2>
         <% @reported_posts.each do |post| %>
           <div><%= link_to "#{post.title} - #{pluralize(post.reports_count, 'report')}", post_path(post) %></div>
         <% end %>
@@ -23,7 +23,7 @@
 
 
     <div class="tab-pane" id="reported_comments">
-      <h3>Reported Posts</h3>
+      <h2 class="text-center">reported comments</h2>
         <% @reported_comments.each do |comment| %>
           <h4><%= pluralize(comment.reports_count, "report") %>:</h4>
           <div class="well">
@@ -32,8 +32,8 @@
         <% end %>
     </div>
 
-      <div class="tab-pane" id="most_submits">
-      <h3>Most Posts</h3>
+      <div class="tab-pane text-center" id="most_submits">
+      <h2>most posts</h2>
 
       <% count_hash = @most_posts.count %>
       <ul>
@@ -44,4 +44,5 @@
     </div>
   </div>
   </div>
+</body>
 

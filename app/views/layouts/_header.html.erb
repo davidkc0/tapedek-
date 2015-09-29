@@ -1,4 +1,4 @@
-<header class="navbar navbar-inverse" role= "navigation">
+<header class="navbar navbar-inverse" role= "navigation" style="border-radius:0px;">
   <div class="navbar-inner">
     <div class="container">
 
@@ -21,8 +21,9 @@
           <% else %>
             <li><%= link_to 'sign in', new_user_session_path %></li>
             <li><%= link_to 'sign up', new_user_registration_path %></li>
+            <li><%= link_to 'about', about_path %></li>
           <% end %>
-          <li><%= link_to 'about', about_path %></li>
+    
         </ul>
       </nav>
     

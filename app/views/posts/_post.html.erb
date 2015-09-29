@@ -1,6 +1,6 @@
-<% size_class = local_assigns[:small] ? 'smaller_post_show' : '' %>
 
-<div class="<%= cycle('list_line_odd', 'list_line_even')%> <%= size_class %> text-center video_display_center">
+
+<div class="<%= cycle('list_line_odd', 'list_line_even')%> text-center video_display_center">
   <div class="row video-post">
     <div class="col-lg-12">
 
@@ -24,22 +24,22 @@
 <div class="post_footer row">
 
   <div class="btn-group col-md-2 vote_buttons">
-    <%= link_to like_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
+    <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-md sharp", remote: true do %>
       <span class="badge up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
       <span class="glyphicon glyphicon-arrow-up"></span>
     <% end %>
 
-    <%= link_to dislike_post_path(post), method: :put, class: "btn btn-info btn-md", remote: true do %>
+    <%= link_to dislike_post_path(post), method: :put, class: "btn btn-default btn-md sharp", remote: true do %>
       <span class="badge down-vote-<%=post.id%>"><%= post.get_downvotes.size %></span>
       <span class="glyphicon glyphicon-arrow-down"></span>
     <% end %>
   </div>
 
-  <% unless size_class == "smaller_post_show" %>
+  
     <div class="col-md-4">
       <ul class="post-options pull-left">
-        <li><%= link_to "Comments (#{post.comment_threads.count})", comments_post_path(post) %></li>
-        <li>| <span class="post_share_buttons" data-url="<%= post_url(post) %>" data-title="<%= post.title %>">Share</span></li>
+        <li><%= link_to "comments(#{post.comment_threads.count})", comments_post_path(post) %></li>
+        <li> | <span class="post_share_buttons" data-url="<%= post_url(post) %>" data-title="<%= post.title %>"> share </span></li>
       </ul>
     </div>
 
@@ -56,14 +56,15 @@
       <div class="col-md-4">
       <% if current_user %>
         <div class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Post Options
+          <button class="btn btn-default dropdown-toggle sharp" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger"></span> post options
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
 
-            <li><%= link_to "Report link", report_path(report: {reportable_id: post.id, reportable_type: "Post"}), id: "report_#{post.class}_#{post.id}", class: "report_link", remote: true, method: :post %></li>
+          <li><%=link_to "report post", report_path(report: {reportable_id: post.id, reportable_type: "Post"}), id: "report_#{post.class}_#{post.id}", class: "report_link", remote: true, method: :post %></li>
               <% if current_user and (current_user == post.user ||  current_user.admin?) %>
-                <li><%= link_to 'Edit', edit_post_path(post) %></li>
-                <li><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'edit', edit_post_path(post) %></li>
+                <li><%= link_to 'destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
               <% end %>
           </ul>
         </div>
@@ -72,7 +73,7 @@
 
  
     </div>
-  <% end %>
+ 
 
 </div>  
 
