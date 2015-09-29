@@ -13,7 +13,7 @@ class ConversationsController < ApplicationController
 
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
-    flash[:success] = 'Reply sent'
+    flash[:success] = 'reply sent'
     redirect_to conversation_path(@conversation)
   end
 

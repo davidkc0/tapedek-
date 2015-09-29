@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_params, if: :devise_controller?
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:warning] = "Resource not found."
+    flash[:warning] = "resource not found."
     redirect_to request.referer || root_path
   end
 

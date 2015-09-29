@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     comment = Comment.build_from(post,user_id,comment_params[:body])
     if comment.save
       comment.move_to_child_of(parent_post) if parent_post
-      flash[:success] = "Comment created."
+      flash[:success] = "comment created."
       redirect_to comments_post_path(post) and return
     else
       flash[:error] = "#{comment.errors.full_messages}"
@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy if comment.user = current_user
-    flash[:succes] = "Comment deleted."
+    flash[:succes] = "comment deleted."
     redirect_to :back
   end
 
