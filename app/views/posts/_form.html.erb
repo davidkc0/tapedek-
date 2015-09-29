@@ -11,20 +11,16 @@
     </div>
   <% end %>
 
-  <div class="alert alert-info alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Helpful hint:</strong> An interesting or funny video with a descriptive title will get more upvotes...please keep the cat videos to a minimum.
-</div>
-
+  <body class="form1">
   <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control form-control-gray", placeholder: "Having a descriptive title will help get more upvotes." %>
   </div>
   <div class="form-group">
     <%= f.label :video_url %><br>
-    <%= f.text_field :video_url, class: "form-control", placeholder: "YouTube, Vimeo, and Vine videos are supported, as well as some gifs." %>
+    <%= f.text_field :video_url, class: "form-control form-control-gray ", placeholder: "YouTube, Vimeo, Vine, Instagram and Twitch videos are supported, as well as some gifs." %>
 
-    <div id="helpBlock" class="help-block">Having an issue with your link? Click here to see accepted URL formats.</div>
+    <div id="helpBlock" class="help-block">Having an issue with your link? <b>Click here</b> to see accepted URL formats.</div>
     
     <div id="urlFormattingList" style="display:none;">
       <ul>
@@ -37,9 +33,10 @@
   </div>
   <div class="form-group">
     <%= f.label :tag_list, 'Tags (comma-seperated)' %>
-    <%= f.text_field :tag_list, value: @post.tag_list.join(","), class: "form-control" %>
+    <%= f.text_field :tag_list, value: @post.tag_list.join(","), class: "form-control form-control-gray" %>
   </div>
   <div class="form-group">
     <%= f.submit "submit", class: "btn btn-default" %>
 </div>
+</body>
 <% end %>

@@ -18,39 +18,51 @@ h2 {
 	margin-bottom: 0px;
 }
 
+label {
+	color: gray;
+}
+
+
 .list_line_even {
 	
 	margin-top: none;
-	background: #FFF;
-	border-right: 1.9px solid #E1E8ED;
-	border-left: 1.9px solid #E1E8ED;
-	border-bottom: 1.9px solid #E1E8ED; 
+	background: #E4E4E4;
+	border-right: 1.9px solid #2B2B2B;
+	border-left: 1.9px solid #2B2B2B;
+	border-bottom: 7px solid #2B2B2B;
 
 }
 
 .list_line_odd {
 	
-	background: #FFF;
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-	border: 1.9px solid #E1E8ED;
+	background: #E4E4E4;
+	border-right: 1.9px olid #2B2B2B;
+	border-left: 1.9px olid #2B2B2B;
+	border-bottom: 7px solid #2B2B2B;
 	
 }
 
 .post-options {
 	padding: 0;
 	margin: 7px 0;
+	text-decoration: none;
+
 	li {
-		font-size: 12px;
+		font-size: 14;
+		font-weight: bold;
+
 		display: inline !important;	
 	}
 }
 
 .post-options a, .post-options a:visited{
-	color: #gray;
+	color: #333333;
+	text-decoration: none;
 }
 .post-options a:hover{
-	color: red;
+	color: gray;
 	background: none;
+	
 }
 
 .video-post{
@@ -69,6 +81,7 @@ h2 {
 .pagination{	
 	text-decoration: none;
 	font-size: 20px;
+
 }
 
 .post_list {
@@ -96,6 +109,7 @@ h2 {
 
 .reply_form {
 	display: none;
+
 }
 
 .child_comment {
@@ -135,15 +149,29 @@ h2 {
 }
 
 .post_share_buttons {
-	color: #337ab7;
+	color: #gray;
 	cursor: pointer;
 	&:hover, &.active {
-    color: red;
+    color: gray;
     background: none;
     text-decoration: underline;
 	}
 }
 
+.dropdown{
+
+margin-left: -43px;
+}
+
+.well{
+	margin-right: 50px;
+}
+
+
 .video_display_center {
 	margin: 0 auto;
+}
+
+.form1 ul {
+	color:gray;
 }

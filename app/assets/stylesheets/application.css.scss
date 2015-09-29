@@ -18,29 +18,66 @@
 @import "bootstrap";
 
 
-	
+h1 {
+	color: white;
+} 
 
+h2 {
+	color: white;
+} 
+
+h3 {
+	text-align: center;
+}
+
+h4{
+	color: white;
+}
+
+p{
+	color: gray;
+}
 
 body {
 	padding-top: 0px;
-	background: #EAEFF2;
+	background: #2B2B2B;
 	
 	 }
 
+.navbar .btn-navbar {
+	border:0px;
+}
 
 
 
-header {
-	display: block;
-	padding: 10px 10px 10px 10px;
-	margin-bottom: none;
-	font-size: 16px;
-	}
 
 footer {
   color: gray;
   padding-top: 20px;
   padding-bottom: 10px;
   text-align: center;
+  &:hover, &.active {
+    color: gray;
+    background: none;
+    text-decoration: none;
+ }
 }
 
+.sharp {
+  border-radius:0;
+}
+
+.form-control-gray:focus {
+  border-color: #999;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(100,100,100,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(100,100,100,.6);
+} 
+
+.pagination{
+	color: gray;
+}
+
+.admin ul {
+	color: white;
+}

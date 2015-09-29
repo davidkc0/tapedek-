@@ -1,9 +1,4 @@
-<h4><%= @user.name %>'s Profile</h4>
-
-<div><%= link_to 'Send Message', new_message_path(recipient_id: @user), class: 'btn btn-primary' %>
-</div>
-
-<h5><%= @user.name %>'s Posts</h5>
+<h4 class: "text-center">submitted posts by <%= @user.name %> <%= link_to 'send message ', new_message_path(recipient_id: @user), class: 'btn btn-sm btn-primary pull-right' %> </h4>
 
 <% @user.posts.each do |post| %>
   <%= render 'posts/post', post: post %>
