@@ -6,7 +6,7 @@
       <%= f.hidden_field :parent_id, value: parent_id %>
       <%= f.hidden_field :commentable_id, value: @post.id %>
       <%= f.hidden_field :commentable_type, value: @post.class.to_s %>
-      <%= f.text_area :body, placeholder: "Submit a comment", class: "form-control form-control-gray" %>
+      <%= f.text_area :body, placeholder: "submit a comment", class: "form-control form-control-gray" %>
     </div>
     <div class="col-md-3">
       <%= f.submit "Save", class: "btn btn-default sharp" %>
