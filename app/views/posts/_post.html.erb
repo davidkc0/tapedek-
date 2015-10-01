@@ -46,7 +46,8 @@
 
     <div class="col-md-4 pull-right row">
       
-
+      
+      <div class="btn-group pull-right" role="group">
 
       <div class="tag_list col-md-6 <%= !post.tag_list.present? ? 'pull-right': '' %>">
       <% if current_user %>
@@ -71,7 +72,7 @@
         <div class="tag_list col-md-6">
         
         <div class="dropdown pull-right">
-          <button class="btn btn-default dropdown-toggle sharp tag-dropdown-button" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger"></span> Tags
+          <button class="btn btn-default dropdown-toggle sharp tag-dropdown-button" type="button" data-toggle="dropdown">tags
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
             <% post.tag_list.each do |tag| %>
@@ -81,7 +82,7 @@
         </div>
         </div>
       <% end %>
-
+    </div>
  
     </div>
  
