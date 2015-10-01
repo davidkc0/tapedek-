@@ -10,7 +10,7 @@ function postFunctions() {
   $(".new_post").on('submit', function (e) {
     // e.preventDefault();
     var $tag_list = $("#post_tag_list"),
-        tags = $tag_list.val().toLowerCase().split(" ").join("").split(","),
+        tags = $tag_list.val().toLowerCase().split(" ").join("").split(",").slice(0,8),
         uniqueTags = [];
 
     $.each(tags, function(i, el){

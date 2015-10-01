@@ -8,9 +8,9 @@
         <div class="text-center">
           <h3><%= post.title %></h3>
           
-          <span class="content_header_right">
+          <div class="content_header_right">
             <%= render "shared/written_content_header", user: post.user, item: post %>
-          </span>
+          </div>
           
         </div>
       </div>
@@ -23,7 +23,7 @@
 
 <div class="post_footer row">
 
-  <div class="btn-group col-md-2 vote_buttons">
+  <div class="btn-group col-md-2 vote_buttons tag_list">
     <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-md sharp", remote: true do %>
       <span class="badge up-vote-<%=post.id%>"><%= post.get_upvotes.size %></span>
       <span class="glyphicon glyphicon-arrow-up"></span>
@@ -36,7 +36,7 @@
   </div>
 
   
-    <div class="col-md-4">
+    <div class="col-md-4 tag_list">
       <ul class="post-options pull-left">
         <li><%= link_to "comments(#{post.comment_threads.count})", comments_post_path(post) %></li>
         <li> | <span class="post_share_buttons" data-url="<%= post_url(post) %>" data-title="<%= post.title %>"> share </span></li>
@@ -45,16 +45,11 @@
 
 
     <div class="col-md-4 pull-right row">
-      <div class="tag_list col-md-8">
-        <%= "Tags: " if post.tag_list.present? %>
-        <% post.tag_list.each do |tag| %>
-          <%= link_to tag, tag_path(tag) %>
-        <% end %>
-      </div>
+      
 
 
-      <div class="col-md-4">
-      <% if current_user %>
+      <div class="tag_list col-md-6 <%= !post.tag_list.present? ? 'pull-right': '' %>">
+      <% if true %>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle sharp" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger"></span> post options
           <span class="caret"></span></button>
@@ -70,6 +65,22 @@
         </div>
       <% end %> 
       </div> 
+
+
+      <% if post.tag_list.present? %>
+        <div class="tag_list col-md-6">
+        
+        <div class="dropdown pull-right">
+          <button class="btn btn-default dropdown-toggle sharp tag-dropdown-button" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger"></span> Tags
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% post.tag_list.each do |tag| %>
+              <li><%= link_to tag, tag_path(tag) %></li>
+            <% end %>
+          </ul>
+        </div>
+        </div>
+      <% end %>
 
  
     </div>
