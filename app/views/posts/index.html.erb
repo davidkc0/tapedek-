@@ -24,9 +24,7 @@
   <%= page_entries_info @posts, model: 'Post' %>
 </div>
     
-<div class= "pagination_links text-center" >
-<%= will_paginate @posts, renderer: BootstrapPagination::Rails, :page_links => false, previous_label: "< prev", next_label: "next >"%>
- 
-
+<div class= "text-center pagination_links" >
+<%= will_paginate @posts, renderer: BootstrapPagination::Rails, previous_label: "< prev", next_label: "next >", inner_window: 1, outer_window:0 %>
  </div>
 
