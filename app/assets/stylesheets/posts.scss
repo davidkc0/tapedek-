@@ -9,9 +9,22 @@ p {
 	text-align: center;
 }
 
-h2 {
+header h2 {
 	text-align: center;
 	padding-bottom: 35px;
+	margin_bottom: 35px;
+	display: inline;
+}
+
+.mp_color {
+	
+	font-weight: bold;
+	color: #D9534F;
+}
+
+.ao_color {
+	font-weight: bold;
+	color: #5CB85C;
 }
 
 .navbar-default {
