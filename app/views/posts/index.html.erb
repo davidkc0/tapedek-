@@ -3,7 +3,7 @@
 
 
 <div class= "btn-group">
-<%= link_to posts_path, class: "btn btn-danger sharp" do %>
+<%= link_to posts_path(sort_by: "most_popular"), class: "btn btn-danger sharp" do %>
 <span class="glyphicon glyphicon-star"></span> popular
 <% end %>
 <%= link_to posts_path(sort_by: "added_on"), class: "btn btn-success" do %>

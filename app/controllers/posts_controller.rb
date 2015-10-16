@@ -99,12 +99,12 @@ end
     end
 
     def grab_correct_post
-    if params[:sort_by] == "added_on"
-      @added_on = "sort-active"
-      Post.all.order("created_at DESC").paginate(page: params[:page], per_page: 7)
-    else
-      @most_popular = "sort-active"
-      Post.all.order(:cached_votes_score =>:desc).paginate(page: params[:page], per_page: 7)
-    end
-    end
+  if params[:sort_by] == "most_popular"
+    @most_popular = "sort-active"
+    Post.all.order(:cached_votes_score =>:desc).paginate(page: params[:page], per_page: 7)
+  else
+    @added_on = "sort-active"
+    Post.all.order("created_at DESC").paginate(page: params[:page],  per_page: 7)
+  end
+end
 end

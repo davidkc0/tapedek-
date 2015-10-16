@@ -41,6 +41,6 @@ class Post < ActiveRecord::Base
   end
 
 	def self.highest_voted
-    self.order(:cached_votes_up)
+    self.order(:cached_votes_down)
   end
 end
