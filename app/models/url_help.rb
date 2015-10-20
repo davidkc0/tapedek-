@@ -17,7 +17,7 @@ module UrlHelp
   def self.clean_url(url, domain)
     case domain
     when "youtube"
-      regex = /(\?v=)[A-Za-z0-9-]+/
+      regex = /(\?v=)[A-Za-z0-9_-]+/
       uniq_id = url.match(regex) ? url.match(regex)[0] : nil
       uniq_id ? "youtube.com/watch#{uniq_id}" : nil
     when "vimeo"
@@ -27,7 +27,7 @@ module UrlHelp
       regex = /vine.co\/v\/[a-zA-Z0-9]+/
       uniq_id = url.match(regex) ? url.match(regex)[0] : nil
     when "instagram"
-      regex = /instagram.com\/p\/[a-zA-Z0-9]+/
+      regex = /instagram.com\/p\/[a-zA-Z0-9_-]+/
       uniq_id = url.match(regex) ? url.match(regex)[0] : nil
     when "twitch"
       regex = /twitch.tv\/[a-zA-Z0-9_-]+\/v\/[a-zA-Z0-9_-]+/
