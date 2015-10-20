@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
 
 	validates :title, presence: true, 
-			length: {minimum: 4, maximum: 55}
+			length: {minimum: 2, maximum: 60}
 
 	validates :video_url, presence: true, uniqueness: true
 
@@ -41,6 +41,6 @@ class Post < ActiveRecord::Base
   end
 
 	def self.highest_voted
-    self.order(:cached_votes_up)
+    self.order(:cached_votes_down)
   end
 end
